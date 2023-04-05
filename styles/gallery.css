@@ -1,0 +1,25 @@
+.gallery {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+.gallery__description {
+  position: absolute;
+  bottom: 60px;
+  color: #f5f5f5;
+  max-width: 443px;
+  height: 82px;
+  font-size: 30px;
+  line-height: 41px;
+  letter-spacing: -0.03em;
+}
+.gallery__image {
+  margin: 0 auto;
+}
+.gallery__image img {
+  width: 100%;
+}
+@media (max-width: 959px) {
+}
+@media (max-width: 374px) {
+}

@@ -1,0 +1,64 @@
+.contacts {
+  padding-top: 36px;
+  padding-bottom: 150px;
+  margin-bottom: 5px;
+}
+.contacts__inner {
+  width: 100%;
+}
+.contacts__title {
+  position: relative;
+  margin-bottom: 30px;
+  color: #121212;
+}
+.contacts__title::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  bottom: 38px;
+  left: -4px;
+  background-image: url(../resourсes/tel.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.contacts__list {
+  padding-left: 3px;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.contacts__tel {
+  display: inline-block;
+  margin-bottom: 30px;
+  max-width: 100%;
+  font-size: 60px;
+  line-height: 60px;
+  text-decoration: none;
+  color: #121212;
+  letter-spacing: -0.02em;
+}
+.contacts__email {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  font-size: 60px;
+  line-height: 60px;
+  height: 62px;
+  text-decoration: none;
+  color: #121212;
+  opacity: 0.5;
+  transition: all 2.3s ease;
+  letter-spacing: -0.02em;
+}
+.contacts__email:hover {
+  border-bottom: 2px solid gray;
+  transition: all 0.3s ease;
+}
+@media (max-width: 959px) {
+}
+@media (max-width: 374px) {
+}
