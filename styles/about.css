@@ -5,11 +5,6 @@
   width: 100%;
 }
 .about__title {
-  display: block;
-  margin-bottom: 30px;
-  font-size: 18px;
-  line-height: 25px;
-  text-transform: uppercase;
   color: #121212;
 }
 .about__description {

@@ -8,8 +8,6 @@
 }
 .contacts__title {
   position: relative;
-  margin-bottom: 30px;
-  color: #121212;
 }
 .contacts__title::before {
   content: "";
