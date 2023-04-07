@@ -1,21 +1,22 @@
 .gallery {
-  background-color: aquamarine;
+  margin: 0 auto;
+  position: relative;
+  height: 100vh;
 }
-.gallery__inner {
-  height: 717px;
+.gallery__title-wrapper {
+  position: absolute;
+  top: 60px;
+  z-index: 100;
+  width: 100%;
+}
+.gallery__title {
+  font-size: 22px;
+  line-height: 30px;
+  color: white;
 }
 .gallery__slides {
   height: 100%;
   position: relative;
-}
-.gallery__title {
-  position: absolute;
-  top: 60px;
-  left: 0px;
-  z-index: 100;
-  font-size: 22px;
-  line-height: 30px;
-  color: white;
 }
 .gallery__slide {
   position: absolute;
@@ -28,59 +29,52 @@
 .gallery__slide_active {
   opacity: 1;
 }
-.slide1 {
-}
-.slide2 {
-  background-color: green;
-}
-.slide3 {
-  background-color: blue;
-}
-.slide4 {
-  background-color: gray;
-}
-.slide__picture {
-  margin: 0 auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 .slide__description {
   position: absolute;
-  top: 575px;
-  left: 0;
-  max-width: 443px;
-  height: 82px;
+  bottom: 60px;
+  width: 100%;
+  z-index: 100;
   font-size: 30px;
   line-height: 41px;
+  max-width: 443px;
+  height: 82px;
   color: white;
 }
 .slide__image {
+  display: block;
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
-.gallery__controls {
-  top: 518px;
-  width: 100%;
+/* .gallery__controls-wrapper {
   position: absolute;
+  bottom: 165px;
+  width: 100%;
+} */
+.gallery__controls {
+  position: absolute;
+  bottom: 165px;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
-  gap: 14px;
+  gap: 20px;
 }
 .gallery__control-prev {
-  height: 40px;
-  width: 40px;
+  height: 33px;
+  width: 20px;
   background: url(../resourсes/control-prev.png);
   background-repeat: no-repeat;
+  background-size: contain;
   background-position: 50% 50%;
   border: 0;
   opacity: 1;
 }
 .gallery__control-next {
-  height: 40px;
-  width: 40px;
+  height: 33px;
+  width: 20px;
   background: url(../resourсes/control-next.png);
   background-repeat: no-repeat;
+  background-size: contain;
   background-position: 50% 50%;
   border: 0;
   opacity: 1;

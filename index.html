@@ -270,57 +270,72 @@
         </div>
       </section>
       <section class="gallery">
-        <div class="container">
-          <div class="gallery__inner">
+        <div class="gallery__title-wrapper">
+          <div class="container">
             <h2 class="gallery__title title">Галерея проектов</h2>
-            <div class="gallery__slides">
-              <div class="gallery__slide slide1 gallery__slide_active">
-                <img
-                  class="slide__image"
-                  src="/resourсes/example2x.png"
-                  alt="Кровать в спальне"
-                />
-                <h3 class="slide__description">
-                  Проект Двухкомнатной квартиры в ЖК Лесной Пейзаж
-                </h3>
-              </div>
-              <div class="gallery__slide slide2">
-                <picture class="slide__picture"></picture>
+          </div>
+        </div>
+        <div class="gallery__slides">
+          <div class="gallery__slide gallery__slide_active">
+            <img
+              class="slide__image"
+              src="/resourсes/example-1@2x.png"
+              alt="Кровать в спальне"
+            />
+            <div class="container">
+              <h3 class="slide__description">
+                Проект Двухкомнатной квартиры в ЖК Лесной Пейзаж
+              </h3>
+            </div>
+          </div>
+          <div class="gallery__slide">
+            <img
+              class="slide__image"
+              src="/resourсes/example-2@2x.png"
+              alt="Кресло в гостиной"
+            />
+            <div class="slide__description-wrapper">
+              <div class="container">
                 <h3 class="slide__description">Проект гостиной в ЖК Маяк</h3>
               </div>
-              <div class="gallery__slide slide3">
-                <picture class="slide__picture"></picture>
+            </div>
+          </div>
+          <div class="gallery__slide">
+            <img
+              class="slide__image"
+              src="/resourсes/example-3@2x.png"
+              alt="Диван и кресло в гостиной"
+            />
+            <div class="slide__description-wrapper">
+              <div class="container">
                 <h3 class="slide__description">
                   Визуализация кухни-гостиной в частном доме
                 </h3>
               </div>
-              <div class="gallery__slide slide4">
-                <picture class="slide__picture"></picture>
+            </div>
+          </div>
+          <div class="gallery__slide">
+            <img
+              class="slide__image"
+              src="/resourсes/example-4@2x.png"
+              alt="Барная стойка в кухне"
+            />
+            <div class="slide__description-wrapper">
+              <div class="container">
                 <h3 class="slide__description">
                   Проект кухни в скандинавском стиле для ЖК Северный Ветер
                 </h3>
               </div>
             </div>
-            <div class="gallery__controls">
-              <button class="gallery__control-prev"></button>
-              <button class="gallery__control-next"></button>
-            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="gallery__controls">
+            <button class="gallery__control-prev"></button>
+            <button class="gallery__control-next"></button>
           </div>
         </div>
       </section>
-      <!-- <section class="galleryOLD">
-        <div class="gallery__image">
-          <img
-            src="./resourсes/example.png"
-            alt="Проект Двухкомнатной квартиры в ЖК Лесной Пейзаж"
-          />
-        </div>
-        <div class="container">
-          <h3 class="gallery__description">
-            Проект Двухкомнатной квартиры в ЖК Лесной Пейзаж
-          </h3>
-        </div>
-      </section> -->
       <section class="contacts">
         <div class="container">
           <div class="contacts__inner inner">
@@ -364,5 +379,6 @@
         </div>
       </div>
     </footer>
+    <script src="gallery.js"></script>
   </body>
 </html>
