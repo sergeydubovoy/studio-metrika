@@ -1,9 +1,12 @@
 .gallery {
+}
+
+.gallery__inner {
   position: relative;
   margin: 0 auto;
   margin-bottom: 150px;
 }
-.gallery__description {
+.slide__description {
   position: absolute;
   bottom: 60px;
   color: #f5f5f5;
@@ -13,10 +16,10 @@
   line-height: 41px;
   letter-spacing: -0.03em;
 }
-.gallery__image {
+.slide__picture {
   margin: 0 auto;
 }
-.gallery__image img {
+.slide__picture img {
   width: 100%;
 }
 @media (max-width: 959px) {
