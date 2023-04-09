@@ -5,6 +5,7 @@
   width: 100%;
 }
 .about__title {
+  margin-bottom: 30px;
   color: #121212;
 }
 .about__description {

@@ -5,6 +5,7 @@
   width: 100%;
 }
 .projects__title {
+  margin-bottom: 30px;
   color: #121212;
 }
 .projects__list {

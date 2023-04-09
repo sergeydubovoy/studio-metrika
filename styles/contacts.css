@@ -1,58 +1,63 @@
 .contacts {
   padding-top: 150px;
   padding-bottom: 150px;
-  margin-bottom: 5px;
-}
-.contacts__inner {
-  width: 100%;
 }
 .contacts__title {
-  position: relative;
+  margin-bottom: 74px;
 }
-.contacts__title::before {
+.contacts__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 104px;
+}
+.contacts__tel {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 80px;
+  font-size: 60px;
+  text-decoration: none;
+  color: #121212;
+  transition: all 0.3s ease;
+}
+.contacts__email {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 80px;
+  font-size: 60px;
+  text-decoration: none;
+  color: #121212;
+  color: gray;
+  transition: all 0.3s ease;
+}
+.contacts__tel:before,
+.contacts__email:before {
   content: "";
-  display: inline-block;
   position: absolute;
   width: 24px;
   height: 24px;
-  bottom: 38px;
-  left: -4px;
-  background-image: url(../resourсes/tel.svg);
+  top: -46px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-.contacts__list {
-  padding-left: 3px;
-  display: inline-flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+.contacts__tel:before {
+  background-image: url(../resourсes/tel.svg);
 }
-.contacts__tel {
-  display: inline-block;
-  margin-bottom: 30px;
-  max-width: 100%;
-  font-size: 60px;
-  line-height: 60px;
-  text-decoration: none;
-  color: #121212;
-  letter-spacing: -0.02em;
-}
-.contacts__email {
-  display: inline-block;
-  max-width: 100%;
-  font-size: 60px;
-  line-height: 60px;
-  height: 62px;
-  text-decoration: none;
-  color: #121212;
-  opacity: 0.5;
-  transition: all 2.3s ease;
-  letter-spacing: -0.02em;
+.contacts__email:before {
+  background-image: url(../resourсes/email.svg);
 }
 .contacts__email:hover {
   border-bottom: 2px solid gray;
+  transition: all 0.3s ease;
+}
+.contacts__tel:hover {
+  color: gray;
   transition: all 0.3s ease;
 }
 @media (max-width: 1199px) {
