@@ -83,7 +83,7 @@
   border: 0;
   opacity: 1;
 }
-@media (max-width: 959px) {
+@media (max-width: 1199px) {
   .gallery {
     height: 536px;
   }
@@ -109,7 +109,7 @@
     gap: 30px;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .gallery {
     height: 408px;
   }

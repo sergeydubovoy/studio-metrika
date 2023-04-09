@@ -55,7 +55,7 @@
   background: #ad1818;
   transition: all 0.3s ease;
 }
-@media (max-width: 959px) {
+@media (max-width: 1199px) {
   .projects {
     margin-bottom: 103px;
   }
@@ -72,7 +72,7 @@
     line-height: 34px;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .projects {
     margin-bottom: 144px;
   }

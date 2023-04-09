@@ -65,7 +65,7 @@
   line-height: 41px;
   text-align: center;
 }
-@media (max-width: 959px) {
+@media (max-width: 1199px) {
   .services {
     padding-bottom: 120px;
   }
@@ -84,7 +84,7 @@
     line-height: 27px;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .services {
     padding-top: 80px;
     padding-bottom: 80px;

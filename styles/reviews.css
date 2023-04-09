@@ -28,7 +28,7 @@
   font-size: 22px;
   line-height: 30px;
 }
-@media (max-width: 959px) {
+@media (max-width: 1199px) {
   .reviews {
     padding-top: 117px;
     padding-bottom: 120px;
@@ -45,7 +45,7 @@
     line-height: 27px;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .reviews {
     padding-top: 80px;
     padding-bottom: 80px;

@@ -36,7 +36,7 @@
   line-height: 27px;
   color: white;
 }
-@media (max-width: 959px) {
+@media (max-width: 1199px) {
   .intro {
     margin-bottom: 120px;
   }
@@ -65,7 +65,7 @@
     line-height: 27px;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .intro {
     margin-bottom: 80px;
   }

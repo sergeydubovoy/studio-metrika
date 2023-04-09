@@ -36,7 +36,7 @@
   color: #ad1818;
   transition: all 0.3s ease;
 }
-@media (max-width: 959px) {
+@media (max-width: 1199px) {
   .about {
     margin-bottom: 120px;
   }
@@ -54,7 +54,7 @@
     line-height: 27px;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .about {
     margin-bottom: 80px;
   }

@@ -34,14 +34,14 @@ body {
 .inner {
   width: 100%;
 }
-@media (max-width: 959px) {
+@media (max-width: 1199px) {
   .container {
     width: 100%;
     padding-left: 16px;
     padding-right: 18px;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .container {
     width: 100%;
     padding-left: 13px;
