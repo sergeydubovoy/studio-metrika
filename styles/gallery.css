@@ -120,9 +120,14 @@
     height: 68px;
   }
   .gallery__controls {
-    max-width: 100%;
+    width: calc(100% - 27px);
     margin-left: 0px;
     justify-content: space-between;
     align-items: center;
+  }
+  .gallery__control-prev,
+  .gallery__control-next {
+    height: 25px;
+    width: 15px;
   }
 }
