@@ -13,7 +13,7 @@
   gap: 104px;
 }
 .contacts__tel,
-.contacts__email {
+.contacts__telegram {
   position: relative;
   /* flex: 1 0 calc(50% - 52px); */
   height: 60px;
@@ -26,16 +26,17 @@
   color: #121212;
   text-decoration: none;
 }
-.contacts__email a {
+.contacts__telegram a {
   color: gray;
   text-decoration: none;
 }
 .contacts__tel:before,
-.contacts__email:before {
+.contacts__telegram:before {
   content: "";
   position: absolute;
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
+  left: -5px;
   top: -49px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -44,10 +45,10 @@
 .contacts__tel:before {
   background-image: url(../resourсes/tel.svg);
 }
-.contacts__email:before {
-  background-image: url(../resourсes/email.svg);
+.contacts__telegram:before {
+  background-image: url(../resourсes/telegram-logo.svg);
 }
-.contacts__email:hover {
+.contacts__telegram:hover {
   border-bottom: 2px solid gray;
   transition: all 0.3s ease;
 }
@@ -64,7 +65,7 @@
     gap: 114px;
   }
   .contacts__tel,
-  .contacts__email {
+  .contacts__telegram {
     font-size: 45px;
   }
 }
@@ -84,12 +85,12 @@
     gap: 58px;
   }
   .contacts__tel,
-  .contacts__email {
+  .contacts__telegram {
     font-size: 35px;
     line-height: 46px;
   }
   .contacts__tel a,
-  .contacts__email a {
+  .contacts__telegram a {
     color: #121212;
   }
 }
