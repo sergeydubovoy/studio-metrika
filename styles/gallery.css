@@ -1,7 +1,8 @@
 .gallery {
   margin: 0 auto;
   position: relative;
-  height: 100vh;
+  height: 717px;
+  max-width: 1800px;
 }
 .gallery__title {
   top: 60px;
@@ -27,6 +28,7 @@
   height: 100%;
   width: 100%;
   opacity: 0;
+  transition: 1s;
 }
 .gallery__slide_active {
   opacity: 1;
