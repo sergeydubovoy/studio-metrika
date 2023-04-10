@@ -124,6 +124,7 @@
     margin-left: 0px;
     justify-content: space-between;
     align-items: center;
+    gap: 0;
   }
   .gallery__control-prev,
   .gallery__control-next {
