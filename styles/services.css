@@ -1,32 +1,32 @@
 .services {
   padding-top: 150px;
-  padding-bottom: 146px;
+  padding-bottom: 149px;
   background-color: #121212;
   color: white;
 }
 .services__title {
-  margin-bottom: 34px;
+  margin-bottom: 30px;
   color: white;
 }
 .services__inner {
   width: 100%;
 }
 .services__list {
-  margin-bottom: 106px;
+  margin-bottom: 104px;
   display: flex;
   width: inherit;
   flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 85px;
+  row-gap: 81px;
 }
 .service {
   width: calc(50% - 5px);
 }
 .service__image {
+  margin-bottom: 22px;
   position: relative;
 }
 .service__image img {
-  margin-bottom: 15px;
   width: 100%;
   height: 389px;
   object-fit: cover;

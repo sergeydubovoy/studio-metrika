@@ -8,15 +8,17 @@
 .contacts__list {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   max-width: 100%;
+  gap: 104px;
 }
 .contacts__tel,
 .contacts__email {
   position: relative;
-  flex: 1 0 calc(50% - 52px);
-  height: 80px;
+  /* flex: 1 0 calc(50% - 52px); */
+  height: 60px;
   font-size: 60px;
+  line-height: 60px;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
@@ -32,9 +34,9 @@
 .contacts__email:before {
   content: "";
   position: absolute;
-  width: 24px;
-  height: 24px;
-  top: -46px;
+  width: 23px;
+  height: 23px;
+  top: -49px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -64,6 +66,12 @@
   .contacts__tel,
   .contacts__email {
     font-size: 45px;
+  }
+}
+@media (max-width: 830px) {
+  .contacts__list {
+    flex-direction: column;
+    gap: 58px;
   }
 }
 @media (max-width: 767px) {
