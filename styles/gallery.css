@@ -3,16 +3,12 @@
   position: relative;
   height: 100vh;
 }
-.gallery__title-wrapper {
-  position: absolute;
+.gallery__title {
   top: 60px;
   z-index: 100;
   max-width: 100%;
-}
-.gallery__title {
-  margin-bottom: 30px;
-  /* display: block; */
-  width: 100%;
+  position: absolute;
+  display: block;
   font-size: 22px;
   line-height: 30px;
   color: white;
@@ -84,11 +80,9 @@
   .gallery {
     height: 536px;
   }
-  .gallery__title-wrapper {
+  .gallery__title {
     margin-left: 35px;
     top: 80px;
-  }
-  .gallery__title {
     font-size: 20px;
     line-height: 27px;
   }
@@ -111,11 +105,9 @@
   .gallery {
     height: 408px;
   }
-  .gallery__title-wrapper {
+  .gallery__title {
     margin-left: 0px;
     top: 61px;
-  }
-  .gallery__title {
     font-size: 14px;
     line-height: 19px;
   }
