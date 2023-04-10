@@ -3,24 +3,21 @@
   padding-bottom: 30px;
   background-color: #121212;
 }
-.footer__menu {
+.footer__nav {
+  margin: auto;
   margin-bottom: 87px;
-}
-.footer__list {
   display: flex;
-  justify-content: center;
-  gap: 55px;
+  width: 450px;
+  justify-content: space-between;
 }
-.footer__item {
+.footer__link {
   font-size: 18px;
   line-height: 25px;
-}
-.footer__item a {
   text-decoration: none;
   color: #f5f5f5;
   transition: all 0.3s ease;
 }
-.footer__item a:hover {
+.footer__link:hover {
   opacity: 0.5;
   transition: all 0.3s ease;
 }
@@ -38,13 +35,11 @@
     padding-top: 30px;
     padding-bottom: 26px;
   }
-  .footer__menu {
+  .footer__nav {
     margin-bottom: 41px;
+    width: 280px;
   }
-  .footer__list {
-    gap: 30px;
-  }
-  .footer__item {
+  .footer__link {
     font-size: 12px;
     line-height: 16px;
   }

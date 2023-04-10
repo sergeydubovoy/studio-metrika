@@ -11,6 +11,7 @@
   justify-content: flex-start;
   max-width: 100%;
   gap: 104px;
+  vertical-align: middle;
 }
 .contacts__tel,
 .contacts__telegram {
@@ -92,5 +93,12 @@
   .contacts__tel a,
   .contacts__telegram a {
     color: #121212;
+  }
+  .contacts__tel:before,
+  .contacts__telegram:before {
+    width: 18px;
+    height: 18px;
+    top: -20px;
+    left: 0;
   }
 }
