@@ -53,16 +53,18 @@
   max-width: 100%;
   display: flex;
   justify-content: flex-start;
-  gap: 48px;
+  gap: 14px;
 }
 .gallery__control-prev,
 .gallery__control-next {
-  height: 33px;
-  width: 20px;
+  /* height: 33px;
+  width: 20px; */
+  height: 40px;
+  width: 40px;
   background: url(../resourсes/control.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 50% 50%;
+  background-position: left;
   border: 0;
   opacity: 0.5;
   cursor: pointer;
@@ -128,7 +130,7 @@
   }
   .gallery__control-prev,
   .gallery__control-next {
-    height: 25px;
-    width: 15px;
+    height: 30px;
+    width: 30px;
   }
 }
