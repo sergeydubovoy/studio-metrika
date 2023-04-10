@@ -7,11 +7,12 @@
   position: absolute;
   top: 60px;
   z-index: 100;
-  width: 100%;
+  max-width: 100%;
 }
 .gallery__title {
   margin-bottom: 30px;
-  display: block;
+  /* display: block; */
+  width: 100%;
   font-size: 22px;
   line-height: 30px;
   color: white;
@@ -53,7 +54,7 @@
 .gallery__controls {
   position: absolute;
   bottom: 165px;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: flex-start;
   gap: 48px;
@@ -100,6 +101,7 @@
     height: 68px;
   }
   .gallery__controls {
+    width: 100%;
     margin-left: 35px;
     bottom: 155px;
     gap: 30px;
@@ -126,6 +128,7 @@
     height: 68px;
   }
   .gallery__controls {
+    width: 100%;
     margin-left: 0px;
     justify-content: space-between;
     align-items: center;
