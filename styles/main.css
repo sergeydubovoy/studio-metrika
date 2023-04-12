@@ -7,6 +7,7 @@
 @import "../styles/gallery.css";
 @import "../styles/contacts.css";
 @import "../styles/footer.css";
+@import "../styles/popup.css";
 html {
   scroll-behavior: smooth;
 }

@@ -45,6 +45,17 @@
       </div>
     </header> -->
     <main>
+      <div class="js-popup popup popup__open">
+        <div class="js-popup__content popup__content">
+          <button class="js-popup__close-btn popup__close-btn"></button>
+          <div class="popup__title">Заказать услугу</div>
+          <div class="popup__subtitle">
+            Заполните форму, мы свяжемся с вами в течение суток
+          </div>
+          <div class="popup__form-wrapper"></div>
+          <button class="popup__send-btn">Отправить</button>
+        </div>
+      </div>
       <section class="intro">
         <div class="container">
           <div class="intro__inner inner">
@@ -207,7 +218,7 @@
                 <h3 class="service__description">Комплектация</h3>
               </li>
             </ul>
-            <button class="services__order">Заказать услугу</button>
+            <button class="js-btn services__order-btn">Заказать услугу</button>
           </div>
         </div>
       </section>
@@ -356,5 +367,6 @@
       </div>
     </footer>
     <script src="gallery.js"></script>
+    <script src="popup.js"></script>
   </body>
 </html>
