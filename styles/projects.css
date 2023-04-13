@@ -9,6 +9,7 @@
   color: #121212;
 }
 .projects__list {
+  margin-bottom: 90px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,10 +38,8 @@
   line-height: 27px;
   margin-left: 1px;
 }
-.projects__link {
+/* .projects__link {
   width: 100%;
-  margin-top: 90px;
-  padding: 55px 0;
   display: block;
   text-decoration: none;
   text-align: center;
@@ -50,12 +49,12 @@
   color: #ad1818;
   transition: all 0.3s ease;
   border-radius: 5px;
-}
-.projects__link:hover {
+} */
+/* .projects__link:hover {
   color: #fff;
   background: #ad1818;
   transition: all 0.3s ease;
-}
+} */
 @media (max-width: 1199px) {
   .projects {
     margin-bottom: 103px;

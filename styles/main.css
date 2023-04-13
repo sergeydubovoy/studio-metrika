@@ -8,17 +8,33 @@
 @import "../styles/contacts.css";
 @import "../styles/footer.css";
 @import "../styles/popup.css";
+@import "../styles/buttons.css";
 html {
   scroll-behavior: smooth;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 body {
   width: 100%;
   font-family: "Manrope", sans-serif;
   font-style: normal;
   font-weight: 400;
-  letter-spacing: -0.03em;
   background: white;
   color: #121212;
+}
+.body__fixed {
+  overflow: hidden;
+}
+h1,
+h2,
+h3,
+a,
+p,
+div,
+button {
+  letter-spacing: -0.03em;
 }
 .container {
   max-width: 1150px;

@@ -53,7 +53,7 @@
   line-height: 41px;
   margin-left: 3px;
 }
-.services__order-btn {
+/* .services__order-btn {
   padding-top: 56px;
   padding-bottom: 56px;
   width: 100%;
@@ -64,8 +64,7 @@
   font-size: 30px;
   line-height: 41px;
   text-align: center;
-  cursor: pointer;
-}
+} */
 @media (max-width: 1199px) {
   .services {
     padding-bottom: 120px;

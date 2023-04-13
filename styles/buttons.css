@@ -1,0 +1,35 @@
+/* Кнопка на всю ширину (Projects, Services) */
+.full-width-btn {
+  display: block;
+  width: 100%;
+  line-height: 153px;
+  border: 1px solid #ad1818;
+  border-radius: 5px;
+  background-color: #ad1818;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.full-width-btn:hover,
+.full-width-btn_small:hover {
+  background-color: white;
+  color: #ad1818;
+  transition: all 0.3s ease;
+}
+/* Добавление стиля к кнопке на всю ширину (Projects) */
+.full-width-btn_inverted {
+  background-color: white;
+  color: #ad1818;
+}
+.full-width-btn_inverted:hover {
+  color: #fff;
+  background-color: #ad1818;
+  transition: all 0.3s ease;
+}
+/* Маленькая кнопка (Popup) */
+.full-width-btn_small {
+  line-height: 67px;
+  font-size: 20px;
+}
