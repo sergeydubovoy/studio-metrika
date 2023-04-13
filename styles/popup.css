@@ -43,7 +43,7 @@
   line-height: 25px;
   text-align: center;
 }
-.popup__form {
+.input__form {
   margin: 0 0 80px 0;
   width: 643px;
   max-width: 100%;
@@ -54,9 +54,7 @@
 }
 .input {
   display: block;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
+  border: none;
   border-bottom: 1px solid black;
   font-size: 25px;
   line-height: 50px;
