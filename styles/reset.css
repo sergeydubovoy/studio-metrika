@@ -79,7 +79,8 @@ time,
 mark,
 audio,
 video,
-button {
+button,
+input {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
