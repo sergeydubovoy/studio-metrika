@@ -22,6 +22,11 @@
   line-height: 67px;
   font-size: 20px;
 }
+.small-width-btn {
+  width: 255px;
+  font-size: 20px;
+  line-height: 67px;
+}
 /* Ховеры */
 .full-width-btn:hover,
 .full-width-btn_small:hover {

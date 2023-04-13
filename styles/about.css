@@ -15,22 +15,6 @@
   line-height: 61px;
   color: #121212;
 }
-.about__link {
-  box-sizing: border-box;
-  display: block;
-  width: 255px;
-  height: 67px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 5px;
-  background: #ad1818;
-  text-align: center;
-  text-decoration: none;
-  font-size: 20px;
-  line-height: 27px;
-  color: white;
-  transition: all 0.3s ease;
-}
 .about__link:hover {
   border: 1px solid #ad1818;
   background: white;
