@@ -4,16 +4,16 @@
 }
 .header__inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
-.header__list {
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 60px;
 }
-.header__item {
+.nav__link {
   display: block;
   text-decoration: none;
   font-size: 18px;
@@ -21,13 +21,20 @@
   color: #121212;
   border-bottom: 1px solid rgba(0, 0, 0, 0);
   transition: all 0.3s ease;
+  text-transform: uppercase;
 }
-.header__item:hover {
+.nav__link:hover {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   opacity: 0.5;
   transition: all 0.3s ease;
 }
 @media (max-width: 1199px) {
+  .nav {
+    display: none;
+  }
 }
 @media (max-width: 767px) {
+  .nav {
+    display: none;
+  }
 }

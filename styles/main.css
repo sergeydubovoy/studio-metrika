@@ -9,6 +9,7 @@
 @import "../styles/footer.css";
 @import "../styles/popup.css";
 @import "../styles/buttons.css";
+@import "../styles/burger.css";
 html {
   scroll-behavior: smooth;
 }
@@ -24,7 +25,7 @@ body {
   background: white;
   color: #121212;
 }
-.body__fixed {
+.body_fixed {
   overflow: hidden;
 }
 h1,

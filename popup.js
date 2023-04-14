@@ -1,5 +1,5 @@
-const POPUP_OPENED_CLASSNAME = "popup__open";
-const BODY_FIXED_CLASSNAME = "body__fixed";
+const POPUP_OPENED_CLASSNAME = "popup_open";
+const BODY_FIXED_CLASSNAME = "body_fixed";
 
 const bodyNode = document.querySelector("body");
 const popupNode = document.querySelector(".js-popup");
