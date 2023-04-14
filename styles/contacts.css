@@ -14,7 +14,7 @@
   vertical-align: middle;
 }
 .contacts__tel,
-.contacts__telegram {
+.contacts__tg {
   position: relative;
   /* flex: 1 0 calc(50% - 52px); */
   height: 60px;
@@ -27,12 +27,12 @@
   color: #121212;
   text-decoration: none;
 }
-.contacts__telegram a {
+.contacts__tg a {
   color: gray;
   text-decoration: none;
 }
 .contacts__tel:before,
-.contacts__telegram:before {
+.contacts__tg:before {
   content: "";
   position: absolute;
   width: 24px;
@@ -46,10 +46,10 @@
 .contacts__tel:before {
   background-image: url(../resourсes/tel.svg);
 }
-.contacts__telegram:before {
+.contacts__tg:before {
   background-image: url(../resourсes/telegram-logo.svg);
 }
-.contacts__telegram:hover {
+.contacts__tg:hover {
   border-bottom: 2px solid gray;
   transition: all 0.3s ease;
 }
@@ -66,7 +66,7 @@
     gap: 114px;
   }
   .contacts__tel,
-  .contacts__telegram {
+  .contacts__tg {
     font-size: 45px;
   }
 }
@@ -86,16 +86,16 @@
     gap: 58px;
   }
   .contacts__tel,
-  .contacts__telegram {
+  .contacts__tg {
     font-size: 35px;
     line-height: 46px;
   }
   .contacts__tel a,
-  .contacts__telegram a {
+  .contacts__tg a {
     color: #121212;
   }
   .contacts__tel:before,
-  .contacts__telegram:before {
+  .contacts__tg:before {
     width: 18px;
     height: 18px;
     top: -20px;
