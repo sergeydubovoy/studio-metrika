@@ -67,8 +67,8 @@
   display: flex;
   flex-direction: column;
 }
-.burger__contacts-tel,
-.burger__contacts-tg {
+.burger__contacts-tel a,
+.burger__contacts-tg a {
   text-decoration: none;
   color: black;
   font-size: 20px;
