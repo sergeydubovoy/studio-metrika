@@ -27,6 +27,7 @@
   width: 274px;
   height: 100%;
   background: white;
+  overflow-y: auto;
 }
 .burger__logo {
   display: block;
