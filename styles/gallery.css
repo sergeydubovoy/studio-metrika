@@ -124,10 +124,13 @@
     height: 68px;
   }
   .gallery__controls {
-    width: calc(100% - 27px);
+    margin: 0 auto;
+    padding: 0 13px 0 13px;
+    width: 100%;
     margin-left: 0px;
     justify-content: space-between;
     align-items: center;
+    bottom: 50%;
     gap: 0;
   }
   .gallery__control-prev,
