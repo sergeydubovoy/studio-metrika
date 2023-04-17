@@ -1,0 +1,37 @@
+.input__form {
+  margin: 0 0 80px 0;
+  width: 643px;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.input {
+  display: block;
+  padding: 10px 0 10px 0;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 25px;
+  line-height: 34px;
+  font-family: "Manrope", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  outline: none;
+}
+.input::placeholder {
+  opacity: 0.5;
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 767px) {
+  .input__form {
+    margin-bottom: 60px;
+    gap: 30px;
+  }
+  .input {
+    font-size: 18px;
+    line-height: 40px;
+    padding: 8px 0 8px 0;
+  }
+}

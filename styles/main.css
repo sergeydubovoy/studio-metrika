@@ -8,8 +8,10 @@
 @import "../styles/contacts.css";
 @import "../styles/footer.css";
 @import "../styles/popup.css";
-@import "../styles/buttons.css";
 @import "../styles/burger.css";
+@import "../styles/buttons.css";
+@import "../styles/input.css";
+@import "../styles/order.css";
 html {
   scroll-behavior: smooth;
 }
