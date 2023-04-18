@@ -59,8 +59,6 @@
 }
 .gallery__control-prev,
 .gallery__control-next {
-  /* height: 33px;
-  width: 20px; */
   height: 40px;
   width: 40px;
   background: url(../resourсes/control.svg);
@@ -101,7 +99,6 @@
   .gallery__controls {
     max-width: 100%;
     margin-left: 35px;
-    bottom: 155px;
     gap: 36px;
   }
 }
@@ -124,13 +121,11 @@
     height: 68px;
   }
   .gallery__controls {
-    margin: 0 auto;
-    padding: 0 13px 0 13px;
-    width: 100%;
+    width: calc(100% - 27px);
     margin-left: 0px;
+    bottom: 204px;
     justify-content: space-between;
     align-items: center;
-    bottom: 50%;
     gap: 0;
   }
   .gallery__control-prev,
