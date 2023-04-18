@@ -22,7 +22,7 @@
 .popup__content {
   padding: 94px 79px 86px 55px;
   position: relative;
-  overflow-y: auto;
+  overflow-y: hidden;
   border-radius: 10px;
   width: 777px;
   height: 708px;
@@ -56,6 +56,7 @@
     max-width: 100%;
     max-height: 100%;
     background: #ffffff;
+    overflow-y: auto;
   }
   .popup__close-btn {
     top: 40px;
