@@ -39,8 +39,6 @@
   background-color: #ad1818;
   transition: all 0.3s ease;
 }
-@media (max-width: 1199px) {
-}
 @media (max-width: 767px) {
   .full-width-btn {
     font-size: 22px;
@@ -49,5 +47,67 @@
   .full-width-btn_small {
     line-height: 67px;
     font-size: 20px;
+  }
+}
+
+/* Кнопки бургера */
+
+@media (max-width: 1199px) {
+  .burger-btn {
+    display: flex;
+    position: relative;
+    width: 50px;
+    height: 23px;
+    z-index: 1100;
+    right: 0px;
+    background-color: transparent;
+  }
+  .burger-btn__line {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    background-color: transparent;
+    z-index: 1100;
+    transition: all 0.3s linear;
+  }
+  .burger-btn span::before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: -4px;
+    width: 50px;
+    height: 2px;
+    background-color: black;
+    z-index: 1100;
+    transition: all 0.3s linear;
+  }
+  .burger-btn span::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 2px;
+    width: 31px;
+    height: 2px;
+    background-color: black;
+    z-index: 1100;
+    transition: all 0.3s linear;
+  }
+  .burger-btn_open {
+    display: flex;
+    position: relative;
+    z-index: 1100;
+  }
+  .burger-btn_open span {
+    background-color: transparent;
+  }
+  .burger-btn_open span::before {
+    top: 0px;
+    width: 31px;
+    transform: rotateZ(-45deg);
+  }
+  .burger-btn_open span::after {
+    top: 0px;
+    transform: rotateZ(45deg);
   }
 }
