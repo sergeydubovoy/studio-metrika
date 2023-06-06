@@ -19,6 +19,6 @@ burgerNode.addEventListener("click", (event) => {
 
 function toggleBurger() {
   burgerNode.classList.toggle(BURGER_OPENED_CLASSNAME);
-  bodyNode.classList.toggle(BODY_FIXED_CLASSNAME_2);
+  bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
   burgerBtnNode.classList.toggle(BURGER_BTN_OPENED_CLASSNAME);
 }
