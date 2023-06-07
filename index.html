@@ -213,9 +213,98 @@
       <section class="calculate">
         <div class="container">
           <div class="calculate-inner">
-            <h2 class="title calculate__title">
-              Калькулятор стоимости ремонта
-            </h2>
+            <h2 class="calculate__title">Калькулятор стоимости ремонта</h2>
+            <div class="calculate-wrapper">
+              <div class="calculate__manage">
+                <div class="manage__type">
+                  <h2 class="manage__title">Тип помещения</h2>
+                  <div class="type-wrapper">
+                    <p class="option">выберите тип помещения</p>
+                    <p class="option">укажите метраж помещения</p>
+                    <select class="type__select">
+                      <option value="flat" selected>Квартира</option>
+                      <option value="house">Дом</option>
+                      <option value="land">Участок</option>
+                    </select>
+                    <div class="type__meters">
+                      <div class="labels-wrapper">
+                        <p id="metersValue" class="meters__label">44</p>
+                        <p class="meters__label">м&#178;</p>
+                      </div>
+                      <input
+                        class="meters__range"
+                        type="range"
+                        step="1"
+                        min="15"
+                        max="200"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="manage__docs">
+                  <h2 class="manage__title">Состав дизайн-проекта</h2>
+                  <div class="docs">
+                    <div class="doc">
+                      планировочные решения
+                      <div class="doc__calc">
+                        <div class="calc_minus">-</div>
+                        <div class="calc_value">3</div>
+                        <div class="calc_plus">+</div>
+                      </div>
+                    </div>
+                    <div class="doc">
+                      варианты чертежей
+                      <div class="doc__calc">
+                        <div class="calc_minus">-</div>
+                        <div class="calc_value">3</div>
+                        <div class="calc_plus">+</div>
+                      </div>
+                    </div>
+                    <div class="doc">
+                      варианты визуализаций
+                      <div class="doc__calc">
+                        <div class="calc_minus">-</div>
+                        <div class="calc_value">3</div>
+                        <div class="calc_plus">+</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="manage__options">
+                  <h2 class="manage__title">
+                    Что понадобится в дизайн-проекте
+                  </h2>
+                  <div class="options">
+                    <p class="option option_checked">3D визуализация</p>
+                    <p class="option option_unchecked">
+                      чертежи (рабочая документация)
+                    </p>
+                    <p class="option option_unchecked">планировочное решение</p>
+                    <p class="option option_unchecked">
+                      ведомости (шопинг-лист)
+                    </p>
+                    <p class="option option_unchecked">товары со скидкой</p>
+                    <p class="option option_unchecked">смета на ремонт</p>
+                    <p class="option option_unchecked">мебель на заказ</p>
+                  </div>
+                </div>
+                <div class="manage__additional">
+                  <h2 class="manage__title">Дополнительные услуги</h2>
+                  <p class="additional__disclaimer">
+                    оплачиваются отдельно и не входят в состав проекта
+                  </p>
+                </div>
+              </div>
+              <div class="calculate__result">
+                <p class="result__title">Стоимость проекта</p>
+                <p class="result__total">44 000₽</p>
+                <p class="result__square-meter">1000 ₽/м&#178;</p>
+                <p class="result__deadlines">35-45 дней</p>
+                <button class="full-width-btn small-width-btn result__order">
+                  Заказать проект
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

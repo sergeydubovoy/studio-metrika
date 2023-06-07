@@ -1,3 +1,18 @@
 .calculate {
   padding: 150px 0;
 }
+.type__meters {
+  display: flex;
+  flex-direction: column;
+  width: 257px;
+}
+.labels-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 186px;
+}
+.meters__label {
+  font-size: 30px;
+  line-height: 41px;
+  color: #ad1818;
+}
