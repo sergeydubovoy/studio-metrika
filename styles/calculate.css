@@ -1,6 +1,10 @@
 .calculate {
   padding: 150px 0;
 }
+.calculate__title {
+  font-size: 45px;
+  line-height: 61px;
+}
 .type__meters {
   display: flex;
   flex-direction: column;
@@ -15,4 +19,17 @@
   font-size: 30px;
   line-height: 41px;
   color: #ad1818;
+}
+.manage__title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 41px;
+}
+.option__name {
+  font-size: 30px;
+  line-height: 41px;
+}
+.services__disclaimer {
+  font-size: 20px;
+  line-height: 27px;
 }
