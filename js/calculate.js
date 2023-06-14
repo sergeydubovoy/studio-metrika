@@ -63,6 +63,11 @@ const choseEstateType = (type) => {
   }
 };
 
+const calculateTotalCost = () => {
+  let squareMetersValue = metersRangeNode.value * SQUARE_METER_COST;
+  resultTotalCostNode.textContent = squareMetersValue;
+};
+
 // const updateCounter = (event) => {
 //   const parentElement = event.target.closest(".doc__calc");
 //   const counterNode = parentElement.querySelector("calc_value");
@@ -84,12 +89,20 @@ const choseEstateType = (type) => {
 // ОБРАБОТЧИКИ СОБЫТИЙ
 // ___________________________________________________________________________
 
+// Инициализация приложения после загрузки DOM-дерева
 document.addEventListener("DOMContentLoaded", () => {
   initApp();
 });
-
+// Выбор метража ползунком
 metersRangeNode.addEventListener("input", choseMeters);
 
+// Пересчет суммы при смене типа недвижимости
+typeSelectNode.addEventListener("change", calculateTotalCost);
+
+// Пересчет суммы при движении ползунка
+metersRangeNode.addEventListener("input", calculateTotalCost);
+
+// Калькуляция на счетчиках +
 firstPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(firstCounterNode);
 });
@@ -100,6 +113,7 @@ thirdPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(thirdCounterNode);
 });
 
+// Калькуляция на счетчиках -
 firstMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(firstCounterNode);
 });
