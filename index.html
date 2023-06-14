@@ -224,17 +224,18 @@
                       <p class="option__name">укажите метраж помещения</p>
                     </div>
                     <div class="type-column">
-                      <select class="option__name type__select">
+                      <select id="typeSelect" class="option__name type__select">
                         <option value="flat" selected>Квартира</option>
                         <option value="house">Дом</option>
                         <option value="land">Участок</option>
                       </select>
                       <div class="type__meters">
                         <div class="meters__labels-wrapper">
-                          <p id="metersValue" class="meters__label">44</p>
+                          <p id="metersValue" class="meters__value">44</p>
                           <p class="meters__label">м&#178;</p>
                         </div>
                         <input
+                          id="metersRange"
                           class="meters__range"
                           type="range"
                           step="1"
@@ -248,101 +249,92 @@
                 </div>
                 <div class="manage">
                   <h2 class="manage__title">Состав дизайн-проекта</h2>
-                  <div class="docs">
-                    <div class="option__name doc">
+                  <ul class="docs__list">
+                    <li class="option__name doc">
                       планировочные решения
                       <div class="doc__calc">
-                        <button class="calc_minus">-</button>
-                        <div class="calc_value">3</div>
-                        <button class="calc_plus">+</button>
+                        <button id="minusButton_1" class="calc_minus">-</button>
+                        <p id="counterNode_1" class="calc_value">0</p>
+                        <button id="plusButton_1" class="calc_plus">+</button>
                       </div>
-                    </div>
-                    <div class="option__name doc">
+                    </li>
+                    <li class="option__name doc">
                       варианты чертежей
                       <div class="doc__calc">
-                        <button class="calc_minus">-</button>
-                        <div class="calc_value">3</div>
-                        <button class="calc_plus">+</button>
+                        <button id="minusButton_2" class="calc_minus">-</button>
+                        <p id="counterNode_2" class="calc_value">0</p>
+                        <button id="plusButton_2" class="calc_plus">+</button>
                       </div>
-                    </div>
-                    <div class="option__name doc">
+                    </li>
+                    <li class="option__name doc">
                       варианты визуализаций
                       <div class="doc__calc">
-                        <button class="calc_minus">-</button>
-                        <div class="calc_value">3</div>
-                        <button class="calc_plus">+</button>
+                        <button id="minusButton_3" class="calc_minus">-</button>
+                        <p id="counterNode_3" class="calc_value">0</p>
+                        <button id="plusButton_3" class="calc_plus">+</button>
                       </div>
-                    </div>
-                  </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="manage">
                   <h2 class="manage__title">
                     Что понадобится в дизайн-проекте
                   </h2>
-                  <div class="options">
-                    <div class="option option_checked">
-                      <p class="option__name option__name_checked">
-                        3D визуализация
-                      </p>
-                      <label class="option__checkbox-cover">
+                  <ul class="options__list">
+                    <li>
+                      <label
+                        class="option__item option__item_checked option__name option__name_checked"
+                        >3D визуализация
                         <input
                           type="checkbox"
-                          class="option__checkbox_checked"
+                          class="option__checkbox option__checkbox_checked"
                         />
                       </label>
-                    </div>
-                    <div class="option">
-                      <p class="option__name">чертежи (рабочая документация)</p>
-                      <label class="option__checkbox-cover">
+                    </li>
+                    <li>
+                      <label class="option__item option__name"
+                        >чертежи (рабочая документация)
                         <input type="checkbox" class="option__checkbox" />
                       </label>
-                    </div>
-                    <!-- <div class="option">
-                      <p class="option__name">планировочное решение</p>
-                      <label class="option__checkbox-cover">
+                    </li>
+                    <li>
+                      <label class="option__item option__name"
+                        >планировочное решение
                         <input type="checkbox" class="option__checkbox" />
                       </label>
-                    </div> -->
-                    <label
-                      class="option option_checked option__name option__name_checked option__checkbox-cover"
-                      >планировочное решение
-                      <input
-                        type="checkbox"
-                        class="option__checkbox option__checkbox_checked"
-                      />
-                    </label>
-                    <div class="option">
-                      <p class="option__name">ведомости (шопинг-лист)</p>
-                      <label class="option__checkbox-cover">
+                    </li>
+                    <li>
+                      <label class="option__item option__name"
+                        >ведомости (шопинг-лист)
                         <input type="checkbox" class="option__checkbox" />
                       </label>
-                    </div>
-                    <div class="option">
-                      <p class="option__name">товары со скидкой</p>
-                      <label class="option__checkbox-cover">
+                    </li>
+                    <li>
+                      <label class="option__item option__name"
+                        >товары со скидкой
                         <input type="checkbox" class="option__checkbox" />
                       </label>
-                    </div>
-                    <div class="option">
-                      <p class="option__name">смета на ремонт</p>
-                      <label class="option__checkbox-cover">
+                    </li>
+                    <li>
+                      <label class="option__item option__name"
+                        >смета на ремонт
                         <input type="checkbox" class="option__checkbox" />
                       </label>
-                    </div>
-                    <div class="option">
-                      <p class="option__name">мебель на заказ</p>
-                      <label class="option__checkbox-cover">
+                    </li>
+                    <li>
+                      <label class="option__item option__name"
+                        >мебель на заказ
                         <input type="checkbox" class="option__checkbox" />
                       </label>
-                    </div>
-                  </div>
+                    </li>
+                  </ul>
                 </div>
                 <div class="manage">
                   <h2 class="manage__title">Дополнительные услуги</h2>
                   <p class="extras__disclaimer">
                     оплачиваются отдельно и не входят в состав проекта
                   </p>
-                  <div class="extras">
+                  <div class="extras__list">
                     <div class="extra">
                       <div class="extra-inner-wrapper">
                         <label class="extra__checkbox-cover">
@@ -421,8 +413,13 @@
               </div>
               <div class="calculate__result">
                 <p class="result__title">Стоимость проекта</p>
-                <p class="result__total">44 000₽</p>
-                <p class="result__square-meter">1000 ₽/м&#178;</p>
+                <div class="result__total">
+                  <span id="resultTotal"></span> ₽
+                </div>
+                <div class="result__cost-per-meter">
+                  <span id="resultCostPerMeter"></span>
+                  ₽/м&#178;
+                </div>
                 <p class="result__deadlines">35-45 дней</p>
                 <button class="full-width-btn small-width-btn result__order">
                   Заказать проект
@@ -647,5 +644,6 @@
     <script src="./js/gallery.js"></script>
     <script src="./js/popup.js"></script>
     <script src="./js/burger.js"></script>
+    <script src="./js/calculate.js"></script>
   </body>
 </html>
