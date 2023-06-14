@@ -3,7 +3,7 @@ const metersRangeNode = document.getElementById("metersRange");
 
 const squareMetersValueNode = document.getElementById("metersValue");
 const resultTotalCostNode = document.getElementById("resultTotal");
-const squareMeterCostNode = document.getElementById("resultCostPerMeter");
+const squareMeterCostNode = document.getElementById("squareMeterCost");
 
 let SQUARE_METER_COST = 1000;
 let TOTAL_COST = 44000;
@@ -29,7 +29,9 @@ const thirdCounterNode = document.getElementById("counterNode_3");
 const initApp = () => {
   resultTotalCostNode.textContent = TOTAL_COST;
   squareMeterCostNode.textContent = SQUARE_METER_COST;
-  counterNode.textContent = COUNTER_INITIAL_VALUE;
+  firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
+  secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
+  thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
 };
 
 const choseMeters = () => {
@@ -44,6 +46,21 @@ const counterPlusOne = (counterNode) => {
 const counterMinusOne = (counterNode) => {
   let counterValue = parseInt(counterNode.textContent);
   counterNode.textContent = --counterValue;
+};
+
+const choseEstateType = (type) => {
+  if (type.target.value === "flat") {
+    SQUARE_METER_COST = 1000;
+    squareMeterCostNode.textContent = SQUARE_METER_COST;
+  }
+  if (type.target.value === "house") {
+    SQUARE_METER_COST = 1500;
+    squareMeterCostNode.textContent = SQUARE_METER_COST;
+  }
+  if (type.target.value === "land") {
+    SQUARE_METER_COST = 2000;
+    squareMeterCostNode.textContent = SQUARE_METER_COST;
+  }
 };
 
 // const updateCounter = (event) => {

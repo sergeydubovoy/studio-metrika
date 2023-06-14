@@ -224,7 +224,11 @@
                       <p class="option__name">укажите метраж помещения</p>
                     </div>
                     <div class="type-column">
-                      <select id="typeSelect" class="option__name type__select">
+                      <select
+                        id="typeSelect"
+                        class="option__name type__select"
+                        onchange="choseType(event)"
+                      >
                         <option value="flat" selected>Квартира</option>
                         <option value="house">Дом</option>
                         <option value="land">Участок</option>
@@ -417,7 +421,7 @@
                   <span id="resultTotal"></span> ₽
                 </div>
                 <div class="result__cost-per-meter">
-                  <span id="resultCostPerMeter"></span>
+                  <span id="squareMeterCost"></span>
                   ₽/м&#178;
                 </div>
                 <p class="result__deadlines">35-45 дней</p>
