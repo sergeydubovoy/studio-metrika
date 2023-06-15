@@ -2,7 +2,7 @@ const typeSelectNode = document.getElementById("typeSelect");
 const metersRangeNode = document.getElementById("metersRange");
 
 const squareMetersValueNode = document.getElementById("metersValue");
-const resultTotalCostNode = document.getElementById("resultTotal");
+const totalCostNode = document.getElementById("resultTotal");
 const squareMeterCostNode = document.getElementById("squareMeterCost");
 
 let SQUARE_METER_COST = 1000;
@@ -22,19 +22,22 @@ const firstCounterNode = document.getElementById("counterNode_1");
 const secondCounterNode = document.getElementById("counterNode_2");
 const thirdCounterNode = document.getElementById("counterNode_3");
 
+const extrasCheckboxesNodes = document.querySelectorAll(".extra__checkbox");
+const extrasCostsValuesNodes = document.querySelectorAll(".extra__cost_value");
+
 // ___________________________________________________________________________
 // ФУНКЦИИ
 // ___________________________________________________________________________
 
 const initApp = () => {
-  resultTotalCostNode.textContent = TOTAL_COST;
-  squareMeterCostNode.textContent = SQUARE_METER_COST;
+  totalCostNode.textContent = TOTAL_COST.toLocaleString();
+  squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
   firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
   secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
   thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
 };
 
-const choseMeters = () => {
+const choseSquareMeters = () => {
   squareMetersValueNode.textContent = metersRangeNode.value;
 };
 
@@ -51,39 +54,32 @@ const counterMinusOne = (counterNode) => {
 const choseEstateType = (type) => {
   if (type.target.value === "flat") {
     SQUARE_METER_COST = 1000;
-    squareMeterCostNode.textContent = SQUARE_METER_COST;
+    squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
   }
   if (type.target.value === "house") {
     SQUARE_METER_COST = 1500;
-    squareMeterCostNode.textContent = SQUARE_METER_COST;
+    squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
   }
   if (type.target.value === "land") {
     SQUARE_METER_COST = 2000;
-    squareMeterCostNode.textContent = SQUARE_METER_COST;
+    squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
   }
 };
 
 const calculateTotalCost = () => {
-  let squareMetersValue = metersRangeNode.value * SQUARE_METER_COST;
-  resultTotalCostNode.textContent = squareMetersValue;
+  let totalCost = metersRangeNode.value * SQUARE_METER_COST;
+  let extrasTotalCost = 0;
+
+  extrasCheckboxesNodes.forEach((checkboxNode, i) => {
+    if (checkboxNode.checked) {
+      extrasTotalCost += parseInt(extrasCostsValuesNodes[i].textContent);
+    }
+  });
+
+  totalCost += extrasTotalCost;
+
+  totalCostNode.textContent = totalCost.toLocaleString();
 };
-
-// const updateCounter = (event) => {
-//   const parentElement = event.target.closest(".doc__calc");
-//   const counterNode = parentElement.querySelector("calc_value");
-
-//   if (event.target.classList.contains("calc_minus")) {
-//     let currentCounterValue = parseInt(counterNode.textContent);
-//     if (currentCounterValue > 0) {
-//       counterNode.textContent = --currentCounterValue;
-//     }
-//   }
-
-//   if (event.target.classList.contains("calc_plus")) {
-//     let currentCounterValue = parseInt(counterNode.textContent);
-//     counterNode.textContent = ++currentCounterValue;
-//   }
-// };
 
 // ___________________________________________________________________________
 // ОБРАБОТЧИКИ СОБЫТИЙ
@@ -94,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initApp();
 });
 // Выбор метража ползунком
-metersRangeNode.addEventListener("input", choseMeters);
+metersRangeNode.addEventListener("input", choseSquareMeters);
 
 // Пересчет суммы при смене типа недвижимости
 typeSelectNode.addEventListener("change", calculateTotalCost);
@@ -122,4 +118,9 @@ secondMinusButtonNode.addEventListener("click", () => {
 });
 thirdMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(thirdCounterNode);
+});
+
+// Клик по целому элементу экстра
+extrasCheckboxesNodes.forEach((checkboxNode) => {
+  checkboxNode.addEventListener("click", calculateTotalCost);
 });

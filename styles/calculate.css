@@ -31,6 +31,9 @@
   text-transform: uppercase;
 }
 .calculate__result {
+  position: sticky;
+  overflow: hidden;
+  top: 30px;
   padding: 30px 24px;
   width: 280px;
   height: 410px;
@@ -199,14 +202,15 @@
 .extras__list {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 40px;
   width: 696px;
 }
 .extra {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   width: 696px;
+  cursor: pointer;
 }
 .extra-inner-wrapper {
   display: flex;
@@ -239,11 +243,21 @@
   background-position: 50%;
   border: 1px solid rgba(18, 18, 18, 0);
 }
+.extra__label-cover {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
 .extra__name {
-  width: 540px;
-  text-align: left;
+  max-width: 550px;
+  word-wrap: break-word;
 }
 .extra__cost {
+  display: block;
+  width: 120px;
   font-size: 30px;
   line-height: 41px;
   color: #ad1818;
@@ -257,7 +271,7 @@
 }
 .result__total {
   margin: 0 0 5px 0;
-  font-size: 54px;
+  font-size: 50px;
   line-height: 60px;
 }
 .result__cost-per-meter {
