@@ -44,11 +44,19 @@ const choseSquareMeters = () => {
 const counterPlusOne = (counterNode) => {
   let counterValue = parseInt(counterNode.textContent);
   counterNode.textContent = ++counterValue;
+
+  if (counterValue > 5) {
+    counterNode.textContent = 5;
+  }
 };
 
 const counterMinusOne = (counterNode) => {
   let counterValue = parseInt(counterNode.textContent);
   counterNode.textContent = --counterValue;
+
+  if (counterValue < 0) {
+    counterNode.textContent = 0;
+  }
 };
 
 const choseEstateType = (type) => {
