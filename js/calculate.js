@@ -24,6 +24,7 @@ const thirdCounterNode = document.getElementById("counterNode_3");
 
 const extrasCheckboxesNodes = document.querySelectorAll(".extra__checkbox");
 const extrasCostsValuesNodes = document.querySelectorAll(".extra__cost_value");
+const extras = document.querySelectorAll(".extra");
 
 // ___________________________________________________________________________
 // ФУНКЦИИ
@@ -129,6 +130,14 @@ thirdMinusButtonNode.addEventListener("click", () => {
 });
 
 // Клик по целому элементу экстра
-extrasCheckboxesNodes.forEach((checkboxNode) => {
-  checkboxNode.addEventListener("click", calculateTotalCost);
+// extrasCheckboxesNodes.forEach((checkboxNode) => {
+//   checkboxNode.addEventListener("click", calculateTotalCost);
+// });
+
+extras.forEach((extra) => {
+  extra.addEventListener("click", (event) => {
+    const checkbox = event.currentTarget.querySelector(".extra__checkbox");
+    checkbox.checked = !checkbox.checked;
+    calculateTotalCost();
+  });
 });
