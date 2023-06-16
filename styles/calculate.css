@@ -64,7 +64,7 @@
   background-color: transparent;
   outline: none;
   border: 0px;
-  background: url(/resourсes/type-select-arrow.svg) no-repeat right center;
+  background: url(../resourсes/type-select-arrow.svg) no-repeat right center;
   text-transform: lowercase;
 }
 .type__meters {
