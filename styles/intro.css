@@ -17,7 +17,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    url(../resourсes/start@2x-desktop.png);
+    url(../resourсes/start@2x-desktop.jpeg);
   background-position: 30% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -53,7 +53,7 @@
         rgba(0, 0, 0, 0) 0%,
         rgba(0, 0, 0, 0.2) 100%
       ),
-      url(../resourсes/start@2x-tablet.png);
+      url(../resourсes/start@2x-tablet.jpeg);
     background-position: 30% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,7 +83,7 @@
         rgba(0, 0, 0, 0) 0%,
         rgba(0, 0, 0, 0.2) 100%
       ),
-      url(../resourсes/start@2x-mobile.png);
+      url(../resourсes/start@2x-mobile.jpeg);
     background-position: 30% 50%;
     background-repeat: no-repeat;
     background-size: cover;

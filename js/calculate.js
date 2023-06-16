@@ -90,23 +90,20 @@ const createOrder = () => {
     }
   });
 
-  //   for (let i = 0; i < optionsCheckboxesNodes.length; i++) {
-  //     const checkboxNode = optionsCheckboxesNodes[i];
-  //     if (checkboxNode.checked) {
-  //       const option = {
-  //         name: checkboxNode.name,
-  //         checked: true,
-  //       };
-  //       order.options.push(option);
-  //     }
-  //   }
-
   return order;
+
+  saveToLocalStorage();
 };
 
 // ___________________________________________________________________________
 // ФУНКЦИИ
 // ___________________________________________________________________________
+
+const choseSquareMeters = () => {
+  squareMetersValueNode.textContent = metersRangeNode.value;
+
+  saveToLocalStorage();
+};
 
 const initApp = () => {
   totalCostNode.textContent = TOTAL_COST.toLocaleString();
@@ -115,14 +112,12 @@ const initApp = () => {
   secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
   thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
   loadStoragedOrders();
+  choseSquareMeters();
   calculateTotalCost();
 };
 
-const choseSquareMeters = () => {
-  squareMetersValueNode.textContent = metersRangeNode.value;
-
-  saveToLocalStorage();
-};
+loadStoragedOrders();
+initApp();
 
 const counterPlusOne = (counterNode) => {
   let counterValue = parseInt(counterNode.textContent);
@@ -185,63 +180,54 @@ function calculateTotalCost() {
 // ___________________________________________________________________________
 
 // Инициализация приложения после загрузки DOM-дерева
-document.addEventListener("DOMContentLoaded", () => {
-  loadStoragedOrders();
-  initApp();
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   loadStoragedOrders();
+//   initApp();
+// });
 // Выбор метража ползунком
 metersRangeNode.addEventListener("input", () => {
   choseSquareMeters();
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 
 // Пересчет суммы при смене типа недвижимости
 typeSelectNode.addEventListener("change", () => {
   calculateTotalCost();
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 
 // Пересчет суммы при движении ползунка
 metersRangeNode.addEventListener("input", () => {
   calculateTotalCost();
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 
 // Калькуляция на счетчиках +
 firstPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(firstCounterNode);
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 secondPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(secondCounterNode);
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 thirdPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(thirdCounterNode);
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 
 // Калькуляция на счетчиках -
 firstMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(firstCounterNode);
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 secondMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(secondCounterNode);
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 thirdMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(thirdCounterNode);
   orders.push(createOrder());
-  saveToLocalStorage();
 });
 
 // Клик по целому элементу экстра
@@ -251,7 +237,6 @@ extras.forEach((extra) => {
     checkbox.checked = !checkbox.checked;
     calculateTotalCost();
     orders.push(createOrder());
-    saveToLocalStorage();
   });
 });
 
@@ -261,6 +246,5 @@ optionsItemsNodes.forEach((optionItem) => {
     const checkbox = event.currentTarget.querySelector(".option__checkbox");
     checkbox.checked = !checkbox.checked;
     orders.push(createOrder());
-    saveToLocalStorage();
   });
 });
