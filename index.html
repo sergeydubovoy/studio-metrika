@@ -216,6 +216,7 @@
             <h2 class="calculate__title">Калькулятор стоимости ремонта</h2>
             <div class="calculate-wrapper">
               <div class="calculate__manage">
+                <!-- Тип помещения -->
                 <div class="manage">
                   <h2 class="manage__title">Тип помещения</h2>
                   <div class="type">
@@ -251,6 +252,7 @@
                     </div>
                   </div>
                 </div>
+                <!-- Состав дизайн-проекта -->
                 <div class="manage">
                   <h2 class="manage__title">Состав дизайн-проекта</h2>
                   <ul class="docs__list">
@@ -280,59 +282,85 @@
                     </li>
                   </ul>
                 </div>
+                <!-- Что понадобится в дизайн-проекте -->
                 <div class="manage">
                   <h2 class="manage__title">
                     Что понадобится в дизайн-проекте
                   </h2>
                   <ul class="options__list">
-                    <li>
-                      <label
-                        class="option__item option__item_checked option__name option__name_checked"
-                        >3D визуализация
+                    <li class="option__item">
+                      <p class="option__name">3D визуализация</p>
+                      <label class="option__label">
                         <input
                           type="checkbox"
-                          class="option__checkbox option__checkbox_checked"
+                          class="option__checkbox"
+                          name="3d-visualisation"
                         />
                       </label>
                     </li>
-                    <li>
-                      <label class="option__item option__name"
-                        >чертежи (рабочая документация)
-                        <input type="checkbox" class="option__checkbox" />
+                    <li class="option__item">
+                      <p class="option__name">чертежи (рабочая документация)</p>
+                      <label class="option__label">
+                        <input
+                          type="checkbox"
+                          class="option__checkbox"
+                          name="drawings"
+                        />
                       </label>
                     </li>
-                    <li>
-                      <label class="option__item option__name"
-                        >планировочное решение
-                        <input type="checkbox" class="option__checkbox" />
+                    <li class="option__item">
+                      <p class="option__name">планировочное решение</p>
+                      <label class="option__label">
+                        <input
+                          type="checkbox"
+                          class="option__checkbox"
+                          name="planning-solution"
+                        />
                       </label>
                     </li>
-                    <li>
-                      <label class="option__item option__name"
-                        >ведомости (шопинг-лист)
-                        <input type="checkbox" class="option__checkbox" />
+                    <li class="option__item">
+                      <p class="option__name">ведомости (шопинг-лист)</p>
+                      <label class="option__label">
+                        <input
+                          type="checkbox"
+                          class="option__checkbox"
+                          name="shopping-list"
+                        />
                       </label>
                     </li>
-                    <li>
-                      <label class="option__item option__name"
-                        >товары со скидкой
-                        <input type="checkbox" class="option__checkbox" />
+                    <li class="option__item">
+                      <p class="option__name">товары со скидкой</p>
+                      <label class="option__label">
+                        <input
+                          type="checkbox"
+                          class="option__checkbox"
+                          name="discounted-products"
+                        />
                       </label>
                     </li>
-                    <li>
-                      <label class="option__item option__name"
-                        >смета на ремонт
-                        <input type="checkbox" class="option__checkbox" />
+                    <li class="option__item">
+                      <p class="option__name">смета на ремонт</p>
+                      <label class="option__label">
+                        <input
+                          type="checkbox"
+                          class="option__checkbox"
+                          name="estimate-for-repairs"
+                        />
                       </label>
                     </li>
-                    <li>
-                      <label class="option__item option__name"
-                        >мебель на заказ
-                        <input type="checkbox" class="option__checkbox" />
+                    <li class="option__item">
+                      <p class="option__name">мебель на заказ</p>
+                      <label class="option__label">
+                        <input
+                          type="checkbox"
+                          class="option__checkbox"
+                          name="custom-furniture"
+                        />
                       </label>
                     </li>
                   </ul>
                 </div>
+                <!-- Дополнительные услуги -->
                 <div class="manage">
                   <h2 class="manage__title">Дополнительные услуги</h2>
                   <p class="extras__disclaimer">

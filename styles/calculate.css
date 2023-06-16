@@ -146,6 +146,12 @@
 
 /* ЧТО ПОНАДОБИТСЯ В ДИЗАЙН ПРОЕКТЕ */
 
+.option__item:has(> .option__label > .option__checkbox:checked) {
+  color: #ad1818;
+  border: 1px solid #ad1818;
+  transition: all 0.3s linear;
+}
+
 .options__list {
   display: flex;
   flex-direction: column;
@@ -153,13 +159,21 @@
 }
 .option__item {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   height: 62px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.option__label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
   cursor: pointer;
 }
 .option__item_checked {
@@ -178,17 +192,20 @@
   appearance: none;
   display: block;
   width: 23px;
-  height: 18px;
+  height: 23px;
   cursor: pointer;
 }
-.option__checkbox_checked {
+.option__checkbox:checked {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   display: block;
   width: 23px;
   height: 18px;
-  background-image: url(/resourсes/option-select-arrow-red.svg);
+  background-image: url(../resourсes/option-select-arrow-red.svg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 

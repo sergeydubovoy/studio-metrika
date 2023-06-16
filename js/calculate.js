@@ -26,6 +26,8 @@ const extrasCheckboxesNodes = document.querySelectorAll(".extra__checkbox");
 const extrasCostsValuesNodes = document.querySelectorAll(".extra__cost_value");
 const extras = document.querySelectorAll(".extra");
 
+const optionsItemsNodes = document.querySelectorAll(".option__item");
+
 // ___________________________________________________________________________
 // ФУНКЦИИ
 // ___________________________________________________________________________
@@ -90,6 +92,21 @@ const calculateTotalCost = () => {
   totalCostNode.textContent = totalCost.toLocaleString();
 };
 
+// const checkOptions = (optionItem) => {
+//   const optionNameNode = document.querySelector(".option__name");
+//   const optionCheckboxeNode = document.querySelector(".option__checkbox");
+
+//   if (!optionCheckboxeNode.checked) {
+//     optionItem.classList.add("option__item_checked");
+//     optionNameNode.classList.add("option__name_checked");
+//     optionCheckboxeNode.classList.add("option__checkbox_checked");
+//   } else {
+//     optionItem.classList.remove("option__item_checked");
+//     optionNameNode.classList.remove("option__name_checked");
+//     optionCheckboxeNode.classList.remove("option__checkbox_checked");
+//   }
+// };
+
 // ___________________________________________________________________________
 // ОБРАБОТЧИКИ СОБЫТИЙ
 // ___________________________________________________________________________
@@ -130,14 +147,20 @@ thirdMinusButtonNode.addEventListener("click", () => {
 });
 
 // Клик по целому элементу экстра
-// extrasCheckboxesNodes.forEach((checkboxNode) => {
-//   checkboxNode.addEventListener("click", calculateTotalCost);
-// });
 
 extras.forEach((extra) => {
   extra.addEventListener("click", (event) => {
     const checkbox = event.currentTarget.querySelector(".extra__checkbox");
     checkbox.checked = !checkbox.checked;
     calculateTotalCost();
+  });
+});
+
+// Клик по целому элементу опции
+
+optionsItemsNodes.forEach((optionItem) => {
+  optionItem.addEventListener("click", (event) => {
+    const checkbox = event.currentTarget.querySelector(".option__checkbox");
+    checkbox.checked = !checkbox.checked;
   });
 });
