@@ -1,14 +1,14 @@
 const typeSelectNode = document.getElementById("typeSelect");
 const metersRangeNode = document.getElementById("metersRange");
 
-const squareMetersValueNode = document.getElementById("metersValue");
 const totalCostNode = document.getElementById("resultTotal");
+const squareMetersValueNode = document.getElementById("metersValue");
 const squareMeterCostNode = document.getElementById("squareMeterCost");
 
 let SQUARE_METER_COST = 1000;
 let TOTAL_COST = 44000;
-
 let COUNTER_INITIAL_VALUE = 0;
+let SQUARE_METERS_INITIAL_VALUE = 44;
 
 const firstMinusButtonNode = document.getElementById("minusButton_1");
 const secondMinusButtonNode = document.getElementById("minusButton_2");
@@ -44,29 +44,126 @@ function saveToLocalStorage() {
   localStorage.setItem(STORAGE_ORDERS, JSON.stringify(orders));
 }
 
+// function initApp() {
+//   totalCostNode.textContent = TOTAL_COST.toLocaleString();
+//   squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
+//   firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
+//   secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
+//   thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
+//   loadStoragedOrders();
+//   choseSquareMeters();
+
+//   calculateTotalCost();
+// }
+
+// function initApp() {
+//   totalCostNode.textContent = TOTAL_COST.toLocaleString();
+//   squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
+//   firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
+//   secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
+//   thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
+//   squareMetersValueNode.textContent = SQUARE_METERS_INITIAL_VALUE;
+
+//   const lastOrder = loadLastStoragedOrder();
+//   if (lastOrder !== null) {
+//     typeSelectNode.value = lastOrder.type;
+//     metersRangeNode.value = lastOrder.meters;
+//     firstCounterNode.textContent = lastOrder.counters[0];
+//     secondCounterNode.textContent = lastOrder.counters[1];
+//     thirdCounterNode.textContent = lastOrder.counters[2];
+//     squareMetersValueNode.textContent = lastOrder.squareMeters;
+
+//     extrasCheckboxesNodes.forEach((extraCheckboxNode, i) => {
+//       if (
+//         lastOrder.extras.some((extra) => extra.name === extraCheckboxNode.name)
+//       ) {
+//         extraCheckboxNode.checked = true;
+//       }
+//     });
+
+//     optionsCheckboxesNodes.forEach((optionCheckboxNode) => {
+//       if (
+//         lastOrder.options.some(
+//           (option) => option.name === optionCheckboxNode.name
+//         )
+//       ) {
+//         optionCheckboxNode.checked = true;
+//       }
+//     });
+//   }
+
+//   calculateTotalCost();
+// }
+
 function initApp() {
   totalCostNode.textContent = TOTAL_COST.toLocaleString();
   squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
-  firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
-  secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
-  thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
-  loadStoragedOrders();
-  choseSquareMeters();
+
+  // устанавливаем изначальное значение для квадратных метров
+  const lastOrder = loadLastStoragedOrder();
+
+  if (lastOrder !== null) {
+    typeSelectNode.value = lastOrder.type;
+    metersRangeNode.value = lastOrder.meters;
+    firstCounterNode.textContent = lastOrder.counters[0];
+    secondCounterNode.textContent = lastOrder.counters[1];
+    thirdCounterNode.textContent = lastOrder.counters[2];
+    squareMetersValueNode.textContent = lastOrder.squareMeters;
+    (totalCostNode.textContent = lastOrder.totalCost),
+      // устанавливаем нужное значение для квадратных метров
+      choseSquareMeters();
+
+    extrasCheckboxesNodes.forEach((extraCheckboxNode, i) => {
+      if (
+        lastOrder.extras.some((extra) => extra.name === extraCheckboxNode.name)
+      ) {
+        extraCheckboxNode.checked = true;
+      }
+    });
+
+    optionsCheckboxesNodes.forEach((optionCheckboxNode) => {
+      if (
+        lastOrder.options.some(
+          (option) => option.name === optionCheckboxNode.name
+        )
+      ) {
+        optionCheckboxNode.checked = true;
+      }
+    });
+  } else {
+    // устанавливаем изначальные значения, если они не в локальном хранилище
+    firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
+    secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
+    thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
+    squareMetersValueNode.textContent = SQUARE_METERS_INITIAL_VALUE;
+  }
+
   calculateTotalCost();
-  orders.push(createOrder());
 }
 
 initApp();
 
 // Функция загрузки заказов из локального хранилища
 
-function loadStoragedOrders() {
-  if (storagedOrders !== null) {
-    orders = storagedOrders;
-    orders.forEach(calculateTotalCost);
-  }
+// function loadStoragedOrders() {
+//   if (storagedOrders !== null) {
+//     orders = storagedOrders;
+//     orders.forEach(calculateTotalCost);
+//   }
 
-  orders.push(createOrder());
+//   createOrder();
+// }
+
+function loadLastStoragedOrder() {
+  const storagedOrders = JSON.parse(localStorage.getItem(STORAGE_ORDERS));
+  if (storagedOrders && storagedOrders.length > 0) {
+    const lastOrder = storagedOrders[storagedOrders.length - 1];
+    return {
+      ...lastOrder,
+      counters: lastOrder.counters.map((counter) => parseInt(counter)),
+    };
+  }
+  return null;
 }
 
 // Функция создания объекта с заказом order
@@ -74,6 +171,7 @@ function loadStoragedOrders() {
 function createOrder() {
   const order = {
     type: typeSelectNode.value,
+    squareMeters: squareMetersValueNode.value,
     meters: metersRangeNode.value,
     counters: [
       parseInt(firstCounterNode.textContent),
@@ -82,6 +180,7 @@ function createOrder() {
     ],
     extras: [],
     options: [],
+    totalCost: totalCostNode.value,
   };
 
   extrasCheckboxesNodes.forEach((extraCheckboxNode, i) => {
