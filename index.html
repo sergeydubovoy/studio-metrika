@@ -220,11 +220,8 @@
                 <div class="manage">
                   <h2 class="manage__title">Тип помещения</h2>
                   <div class="type">
-                    <div class="type-column">
+                    <div class="type-row">
                       <p class="option__name">выберите тип помещения</p>
-                      <p class="option__name">укажите метраж помещения</p>
-                    </div>
-                    <div class="type-column">
                       <select
                         id="typeSelect"
                         class="option__name type__select"
@@ -234,6 +231,9 @@
                         <option value="house">Дом</option>
                         <option value="land">Участок</option>
                       </select>
+                    </div>
+                    <div class="type-row">
+                      <p class="option__name">укажите метраж помещения</p>
                       <div class="type__meters">
                         <div class="meters__labels-wrapper">
                           <p id="metersValue" class="meters__value">44</p>
@@ -363,7 +363,7 @@
                 <!-- Дополнительные услуги -->
                 <div class="manage">
                   <h2 class="manage__title">Дополнительные услуги</h2>
-                  <p class="extras__disclaimer">
+                  <p class="extras__disclaimer option__name">
                     оплачиваются отдельно и не входят в состав проекта
                   </p>
                   <ul class="extras__list">
