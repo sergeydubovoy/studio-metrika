@@ -40,24 +40,38 @@ let orders = JSON.parse(localStorage.getItem(STORAGE_ORDERS)) || []; // Масс
 
 const storagedOrders = JSON.parse(localStorage.getItem(STORAGE_ORDERS)); // Методом parse извлекаем из JSON строки обратно в JS объект
 
-const saveToLocalStorage = () => {
+function saveToLocalStorage() {
   localStorage.setItem(STORAGE_ORDERS, JSON.stringify(orders));
-};
+}
+
+function initApp() {
+  totalCostNode.textContent = TOTAL_COST.toLocaleString();
+  squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
+  firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
+  secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
+  thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
+  loadStoragedOrders();
+  choseSquareMeters();
+  calculateTotalCost();
+  orders.push(createOrder());
+}
+
+initApp();
 
 // Функция загрузки заказов из локального хранилища
 
-const loadStoragedOrders = () => {
+function loadStoragedOrders() {
   if (storagedOrders !== null) {
     orders = storagedOrders;
     orders.forEach(calculateTotalCost);
   }
 
   orders.push(createOrder());
-};
+}
 
 // Функция создания объекта с заказом order
 
-const createOrder = () => {
+function createOrder() {
   const order = {
     type: typeSelectNode.value,
     meters: metersRangeNode.value,
@@ -90,36 +104,22 @@ const createOrder = () => {
     }
   });
 
-  return order;
-
   saveToLocalStorage();
-};
+
+  return order;
+}
 
 // ___________________________________________________________________________
 // ФУНКЦИИ
 // ___________________________________________________________________________
 
-const choseSquareMeters = () => {
+function choseSquareMeters() {
   squareMetersValueNode.textContent = metersRangeNode.value;
 
   saveToLocalStorage();
-};
+}
 
-const initApp = () => {
-  totalCostNode.textContent = TOTAL_COST.toLocaleString();
-  squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
-  firstCounterNode.textContent = COUNTER_INITIAL_VALUE;
-  secondCounterNode.textContent = COUNTER_INITIAL_VALUE;
-  thirdCounterNode.textContent = COUNTER_INITIAL_VALUE;
-  loadStoragedOrders();
-  choseSquareMeters();
-  calculateTotalCost();
-};
-
-loadStoragedOrders();
-initApp();
-
-const counterPlusOne = (counterNode) => {
+function counterPlusOne(counterNode) {
   let counterValue = parseInt(counterNode.textContent);
   counterNode.textContent = ++counterValue;
 
@@ -128,9 +128,9 @@ const counterPlusOne = (counterNode) => {
   }
 
   saveToLocalStorage();
-};
+}
 
-const counterMinusOne = (counterNode) => {
+function counterMinusOne(counterNode) {
   let counterValue = parseInt(counterNode.textContent);
   counterNode.textContent = --counterValue;
 
@@ -139,9 +139,9 @@ const counterMinusOne = (counterNode) => {
   }
 
   saveToLocalStorage();
-};
+}
 
-const choseEstateType = (type) => {
+function choseEstateType(type) {
   if (type.target.value === "flat") {
     SQUARE_METER_COST = 1000;
     squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
@@ -156,7 +156,7 @@ const choseEstateType = (type) => {
   }
 
   saveToLocalStorage();
-};
+}
 
 function calculateTotalCost() {
   let totalCost = metersRangeNode.value * SQUARE_METER_COST;
