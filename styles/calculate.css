@@ -406,7 +406,7 @@
   cursor: pointer;
 }
 .extra__checkbox:checked {
-  background: url(/resourсes/checkbox-white.svg);
+  background: url(../resourсes/checkbox-white.svg);
   background-color: #ad1818;
   background-repeat: no-repeat;
   background-position: 50%;
