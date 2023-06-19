@@ -68,7 +68,7 @@ function initApp() {
     secondCounterNode.textContent = lastOrder.counters[1];
     thirdCounterNode.textContent = lastOrder.counters[2];
     squareMetersValueNode.textContent = lastOrder.metersText;
-    squareMeterCostNode.textContent = lastOrder.estateTypeCost;
+    squareMeterCostNode.textContent = lastOrder.estateTypeCost.toLocaleString();
     (totalCostNode.textContent = lastOrder.totalCost), choseSquareMeters(); // устанавливаем нужное значение для квадратных метров
 
     optionsCheckboxesNodes.forEach((optionCheckboxNode) => {
@@ -151,6 +151,32 @@ function createOrder() {
       order.options.push(option);
     }
   }
+
+  //   // Извлекаем все выбранные дополнительные услуги
+  //   const selectedExtras = Array.from(extrasCheckboxesNodes).filter(
+  //     (selectedExtra) => selectedExtra.checked
+  //   );
+
+  //   // Итерируемся по выбранным дополнительным услугам
+  //   selectedExtras.forEach((selectedExtra) => {
+  //     const extra = {
+  //       name: selectedExtra.name,
+  //       cost: parseInt(selectedExtra.getAttribute("data-cost")),
+  //     };
+  //     order.extras.push(extra);
+  //   });
+
+  //   // Вычисляем общую стоимость дополнительных услуг
+  //   let extrasTotalCost = order.extras.reduce(
+  //     (total, extra) => (total += extra.cost),
+  //     0
+  //   );
+
+  //   // Добавляем стоимость дополнительных услуг к общей стоимости заказа
+  //   order.totalCost = (
+  //     metersRangeNode.value * SQUARE_METER_COST +
+  //     extrasTotalCost
+  //   ).toLocaleString();
 
   for (let i = 0; i < extrasCheckboxesNodes.length; i++) {
     if (extrasCheckboxesNodes[i].checked) {
