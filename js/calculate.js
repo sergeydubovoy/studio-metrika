@@ -81,14 +81,6 @@ function initApp() {
       }
     });
 
-    // extrasCheckboxesNodes.forEach((extraCheckboxNode) => {
-    //   if (
-    //     lastOrder.extras.some((extra) => extra.name === extraCheckboxNode.name)
-    //   ) {
-    //     extraCheckboxNode.checked = true;
-    //   }
-    // });
-
     for (let i = 0; i < extrasCheckboxesNodes.length; i++) {
       if (
         lastOrder.extras.some(
@@ -138,7 +130,7 @@ function createOrder() {
     ],
     extras: [],
     options: [],
-    totalCost: totalCostNode.value,
+    totalCost: totalCostNode.textContent,
   };
 
   for (let i = 0; i < optionsCheckboxesNodes.length; i++) {
@@ -152,32 +144,6 @@ function createOrder() {
     }
   }
 
-  //   // Извлекаем все выбранные дополнительные услуги
-  //   const selectedExtras = Array.from(extrasCheckboxesNodes).filter(
-  //     (selectedExtra) => selectedExtra.checked
-  //   );
-
-  //   // Итерируемся по выбранным дополнительным услугам
-  //   selectedExtras.forEach((selectedExtra) => {
-  //     const extra = {
-  //       name: selectedExtra.name,
-  //       cost: parseInt(selectedExtra.getAttribute("data-cost")),
-  //     };
-  //     order.extras.push(extra);
-  //   });
-
-  //   // Вычисляем общую стоимость дополнительных услуг
-  //   let extrasTotalCost = order.extras.reduce(
-  //     (total, extra) => (total += extra.cost),
-  //     0
-  //   );
-
-  //   // Добавляем стоимость дополнительных услуг к общей стоимости заказа
-  //   order.totalCost = (
-  //     metersRangeNode.value * SQUARE_METER_COST +
-  //     extrasTotalCost
-  //   ).toLocaleString();
-
   for (let i = 0; i < extrasCheckboxesNodes.length; i++) {
     if (extrasCheckboxesNodes[i].checked) {
       const extra = {
@@ -189,25 +155,7 @@ function createOrder() {
     }
   }
 
-  //   extrasCheckboxesNodes.forEach((extraCheckboxNode, i) => {
-  //     if (extraCheckboxNode.checked) {
-  //       const extra = {
-  //         name: extraCheckboxNode.name,
-  //         cost: parseInt(extrasCostsValuesNodes[i].textContent),
-  //       };
-  //       order.extras.push(extra);
-  //     }
-  //   });
-
-  //   optionsCheckboxesNodes.forEach((optionCheckboxNode) => {
-  //     if (optionsCheckboxesNodes[i].checked) {
-  //       const option = {
-  //         name: optionsCheckboxesNodes[i].name,
-  //         checked: true,
-  //       };
-  //       order.options.push(option);
-  //     }
-  //   });
+  localStorage.setItem("Order", SQUARE_METER_COST);
 
   return order;
 }
@@ -240,9 +188,10 @@ function counterMinusOne(counterNode) {
   }
 }
 
-// Выбираем тип недвижимости и стоимость за кв.м
+// ВЫБИРАЕМ ТИП НЕДВИЖИМОСТИ И УСТАНАВЛИВАЕМ СТОИМОСТЬ ЗА КВ.М.
 
 function choseEstateType(estateTypeName) {
+  // Если
   if (estateTypeName.target.value === "flat") {
     SQUARE_METER_COST = 1000;
     squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
@@ -261,20 +210,27 @@ function choseEstateType(estateTypeName) {
   saveToLocalStorage();
 }
 
-// Считаем общую сумму заказа
+// СЧИТАЕМ ОБЩУЮ СУММУ ЗАКАЗА
 
 function calculateTotalCost() {
+  // Объявляем переменную totalCost: общая сумма = значение инпута с ползунком * стоимость за кв. м
   let totalCost = metersRangeNode.value * SQUARE_METER_COST;
+  // Объявляем переменную стоимости доп услуг, но с нулевым значением
   let extrasTotalCost = 0;
 
+  // Цикл forEach для доп услуг, в котором к переменной extrasTotalCost с нулевым значением прибавляется стоимость каждого отмеченного элемента
   extrasCheckboxesNodes.forEach((checkboxNode, i) => {
+    // Условие: если чекбокс отмечен - правда, то
     if (checkboxNode.checked) {
+      // Тогда прибавляем к переменной extrasTotalCost стоимость каждого отмеченного элемента
       extrasTotalCost += parseInt(extrasCostsValuesNodes[i].textContent);
     }
   });
 
+  // Здесь уже прибавляем к переменной totalCost стоимость доп услуг extrasTotalCost
   totalCost += extrasTotalCost;
 
+  // Передаем полученную сумму в totalCostNode с применением метода toLocaleString (для разделения порядков пробелом)
   totalCostNode.textContent = totalCost.toLocaleString();
 }
 
