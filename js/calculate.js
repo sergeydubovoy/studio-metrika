@@ -147,7 +147,7 @@ function createOrder() {
   for (let i = 0; i < extrasCheckboxesNodes.length; i++) {
     if (extrasCheckboxesNodes[i].checked) {
       const extra = {
-        name: extrasCheckboxesNodes[i].name,
+        name: extras[i].name,
         cost: parseInt(extrasCostsValuesNodes[i].textContent),
         index: i,
       };
@@ -155,7 +155,7 @@ function createOrder() {
     }
   }
 
-  localStorage.setItem("Order", SQUARE_METER_COST);
+  localStorage.setItem("Order", JSON.stringify(order));
 
   return order;
 }
