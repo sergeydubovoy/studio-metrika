@@ -40,11 +40,11 @@ const extras = document.querySelectorAll(".extra");
 const STORAGED_ORDER = "Order"; // Пометка для сохранения в локальное хранилище
 
 let orders = JSON.parse(localStorage.getItem(STORAGED_ORDER)) || []; // Массив с заказами
+let squareMeterCost = parseInt(localStorage.getItem(STORAGED_ORDER)) || 1000;
 
-let SQUARE_METER_COST = parseInt(localStorage.getItem(STORAGED_ORDER)) || 1000;
 let TOTAL_COST = 44000;
-let COUNTER_INITIAL_VALUE = 0;
-let SQUARE_METERS_INITIAL_VALUE = 44;
+const COUNTER_INITIAL_VALUE = 0;
+const SQUARE_METERS_INITIAL_VALUE = 44;
 
 // ___________________________________________________________________________
 // ФУНКЦИИ
@@ -56,14 +56,14 @@ function saveToLocalStorage() {
 
 function initApp() {
   totalCostNode.textContent = TOTAL_COST.toLocaleString();
-  squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
+  squareMeterCostNode.textContent = squareMeterCost.toLocaleString();
 
   // устанавливаем изначальное значение для квадратных метров
   const lastOrder = loadLastStoragedOrder();
 
   if (lastOrder !== null) {
     typeSelectNode.value = lastOrder.estateTypeName;
-    metersRangeNode.value = lastOrder.metersRange;
+    metersRangeNode.value = parseInt(lastOrder.metersRange);
     firstCounterNode.textContent = lastOrder.counters[0];
     secondCounterNode.textContent = lastOrder.counters[1];
     thirdCounterNode.textContent = lastOrder.counters[2];
@@ -120,9 +120,9 @@ function loadLastStoragedOrder() {
 function createOrder() {
   const order = {
     estateTypeName: typeSelectNode.value,
-    estateTypeCost: SQUARE_METER_COST,
+    estateTypeCost: squareMeterCost,
     metersText: squareMetersValueNode.value,
-    metersRange: metersRangeNode.value,
+    metersRange: parseInt(metersRangeNode.value),
     counters: [
       parseInt(firstCounterNode.textContent),
       parseInt(secondCounterNode.textContent),
@@ -130,7 +130,6 @@ function createOrder() {
     ],
     extras: [],
     options: [],
-    totalCost: totalCostNode.textContent,
   };
 
   for (let i = 0; i < optionsCheckboxesNodes.length; i++) {
@@ -155,16 +154,8 @@ function createOrder() {
     }
   }
 
-  //   extrasCheckboxesNodes.forEach((checkbox, i) => {
-  //     if (checkbox.checked) {
-  //       const extra = {
-  //         name: extras[i].name,
-  //         cost: parseInt(extrasCostsValuesNodes[i].textContent),
-  //         index: i,
-  //       };
-  //       order.extras.push(extra);
-  //     }
-  //   });
+  orders = [];
+  orders.push(order);
 
   localStorage.setItem(STORAGED_ORDER, JSON.stringify(orders));
 
@@ -204,19 +195,19 @@ function counterMinusOne(counterNode) {
 function choseEstateType(estateTypeName) {
   // Если
   if (estateTypeName.target.value === "flat") {
-    SQUARE_METER_COST = 1000;
-    squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
+    squareMeterCost = 1000;
+    squareMeterCostNode.textContent = squareMeterCost.toLocaleString();
   }
   if (estateTypeName.target.value === "house") {
-    SQUARE_METER_COST = 1500;
-    squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
+    squareMeterCost = 1500;
+    squareMeterCostNode.textContent = squareMeterCost.toLocaleString();
   }
   if (estateTypeName.target.value === "land") {
-    SQUARE_METER_COST = 2000;
-    squareMeterCostNode.textContent = SQUARE_METER_COST.toLocaleString();
+    squareMeterCost = 2000;
+    squareMeterCostNode.textContent = squareMeterCost.toLocaleString();
   }
 
-  localStorage.setItem("Order", SQUARE_METER_COST);
+  localStorage.setItem("Order", squareMeterCost);
 
   saveToLocalStorage();
 }
@@ -225,7 +216,7 @@ function choseEstateType(estateTypeName) {
 
 function calculateTotalCost() {
   // Объявляем переменную totalCost: общая сумма = значение инпута с ползунком * стоимость за кв. м
-  let totalCost = metersRangeNode.value * SQUARE_METER_COST;
+  let totalCost = metersRangeNode.value * squareMeterCost;
   // Объявляем переменную стоимости доп услуг, но с нулевым значением
   let extrasTotalCost = 0;
 
