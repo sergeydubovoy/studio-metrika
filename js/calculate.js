@@ -155,7 +155,18 @@ function createOrder() {
     }
   }
 
-  localStorage.setItem("Order", JSON.stringify(order));
+  //   extrasCheckboxesNodes.forEach((checkbox, i) => {
+  //     if (checkbox.checked) {
+  //       const extra = {
+  //         name: extras[i].name,
+  //         cost: parseInt(extrasCostsValuesNodes[i].textContent),
+  //         index: i,
+  //       };
+  //       order.extras.push(extra);
+  //     }
+  //   });
+
+  localStorage.setItem(STORAGED_ORDER, JSON.stringify(orders));
 
   return order;
 }
