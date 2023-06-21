@@ -39,8 +39,20 @@ const extras = document.querySelectorAll(".extra");
 
 const STORAGED_ORDER = "Order"; // Пометка для сохранения в локальное хранилище
 
-let orders = JSON.parse(localStorage.getItem(STORAGED_ORDER)) || []; // Массив с заказами
 let squareMeterCost = parseInt(localStorage.getItem(STORAGED_ORDER)) || 1000;
+
+let order = {
+  estateTypeName: typeSelectNode.value,
+  metersText: squareMetersValueNode.value,
+  metersRange: parseInt(metersRangeNode.value),
+  counters: [
+    parseInt(firstCounterNode.textContent),
+    parseInt(secondCounterNode.textContent),
+    parseInt(thirdCounterNode.textContent),
+  ],
+  options: [],
+  extras: [],
+};
 
 let TOTAL_COST = 44000;
 const COUNTER_INITIAL_VALUE = 0;
@@ -50,16 +62,12 @@ const SQUARE_METERS_INITIAL_VALUE = 44;
 // ФУНКЦИИ
 // ___________________________________________________________________________
 
-function saveToLocalStorage() {
-  localStorage.setItem(STORAGED_ORDER, JSON.stringify(orders));
-}
-
 function initApp() {
   totalCostNode.textContent = TOTAL_COST.toLocaleString();
   squareMeterCostNode.textContent = squareMeterCost.toLocaleString();
 
   // устанавливаем изначальное значение для квадратных метров
-  const lastOrder = loadLastStoragedOrder();
+  const lastOrder = loadStoragedOrder();
 
   if (lastOrder !== null) {
     typeSelectNode.value = lastOrder.estateTypeName;
@@ -68,7 +76,6 @@ function initApp() {
     secondCounterNode.textContent = lastOrder.counters[1];
     thirdCounterNode.textContent = lastOrder.counters[2];
     squareMetersValueNode.textContent = lastOrder.metersText;
-    squareMeterCostNode.textContent = lastOrder.estateTypeCost.toLocaleString();
     (totalCostNode.textContent = lastOrder.totalCost), choseSquareMeters(); // устанавливаем нужное значение для квадратных метров
 
     optionsCheckboxesNodes.forEach((optionCheckboxNode) => {
@@ -98,51 +105,49 @@ function initApp() {
     squareMetersValueNode.textContent = SQUARE_METERS_INITIAL_VALUE;
   }
 
+  choseEstateType({ target: { value: typeSelectNode.value } });
   calculateTotalCost();
 }
 
 initApp();
 
-// Функция загрузки заказов из локального хранилища
-
-function loadLastStoragedOrder() {
-  const storagedOrder = JSON.parse(localStorage.getItem(STORAGED_ORDER)); // Методом parse извлекаем из JSON строки обратно в JS объект
-
-  if (storagedOrder && storagedOrder.length > 0) {
-    const lastOrder = storagedOrder[storagedOrder.length - 1];
-    return lastOrder;
-  }
-  return null;
+// Функция сохранения заказа в локальное хранилище
+function saveToLocalStorage() {
+  localStorage.setItem(STORAGED_ORDER, JSON.stringify(order));
 }
 
-// Функция создания объекта с заказом order
+// Функция выгрузки заказа из локального хранилища
+function loadStoragedOrder() {
+  const storagedOrder = JSON.parse(localStorage.getItem(STORAGED_ORDER)); // Методом parse извлекаем из JSON строки обратно в JS объект
+
+  if (storagedOrder) {
+    return storagedOrder;
+  } else {
+    return null;
+  }
+}
 
 function createOrder() {
-  const order = {
-    estateTypeName: typeSelectNode.value,
-    estateTypeCost: squareMeterCost,
-    metersText: squareMetersValueNode.value,
-    metersRange: parseInt(metersRangeNode.value),
-    counters: [
-      parseInt(firstCounterNode.textContent),
-      parseInt(secondCounterNode.textContent),
-      parseInt(thirdCounterNode.textContent),
-    ],
-    extras: [],
-    options: [],
-  };
+  order.estateTypeName = typeSelectNode.value;
+  order.metersText = squareMetersValueNode.value;
+  order.metersRange = parseInt(metersRangeNode.value);
 
+  order.counters[0] = parseInt(firstCounterNode.textContent);
+  order.counters[1] = parseInt(secondCounterNode.textContent);
+  order.counters[2] = parseInt(thirdCounterNode.textContent);
+
+  order.options = [];
   for (let i = 0; i < optionsCheckboxesNodes.length; i++) {
     if (optionsCheckboxesNodes[i].checked) {
       const option = {
         name: optionsCheckboxesNodes[i].name,
-        checked: true,
         index: i,
       };
       order.options.push(option);
     }
   }
 
+  order.extras = [];
   for (let i = 0; i < extrasCheckboxesNodes.length; i++) {
     if (extrasCheckboxesNodes[i].checked) {
       const extra = {
@@ -154,10 +159,8 @@ function createOrder() {
     }
   }
 
-  orders = [];
-  orders.push(order);
-
-  localStorage.setItem(STORAGED_ORDER, JSON.stringify(orders));
+  calculateTotalCost();
+  saveToLocalStorage();
 
   return order;
 }
@@ -177,6 +180,8 @@ function counterPlusOne(counterNode) {
   if (counterValue > 5) {
     counterNode.textContent = 5;
   }
+
+  createOrder();
 }
 
 // Счетчик минус один
@@ -188,6 +193,8 @@ function counterMinusOne(counterNode) {
   if (counterValue < 0) {
     counterNode.textContent = 0;
   }
+
+  createOrder();
 }
 
 // ВЫБИРАЕМ ТИП НЕДВИЖИМОСТИ И УСТАНАВЛИВАЕМ СТОИМОСТЬ ЗА КВ.М.
@@ -207,9 +214,7 @@ function choseEstateType(estateTypeName) {
     squareMeterCostNode.textContent = squareMeterCost.toLocaleString();
   }
 
-  localStorage.setItem("Order", squareMeterCost);
-
-  saveToLocalStorage();
+  createOrder();
 }
 
 // СЧИТАЕМ ОБЩУЮ СУММУ ЗАКАЗА
@@ -249,67 +254,39 @@ function calculateTotalCost() {
 // Выбор метража ползунком
 metersRangeNode.addEventListener("input", () => {
   choseSquareMeters();
-  orders.push(createOrder());
-  saveToLocalStorage();
+  createOrder();
 });
 
 // Пересчет суммы при смене типа недвижимости
 typeSelectNode.addEventListener("change", () => {
-  calculateTotalCost();
-  orders.push(createOrder());
-  saveToLocalStorage();
+  createOrder();
 });
 
 // Пересчет суммы при движении ползунка
 metersRangeNode.addEventListener("input", () => {
-  calculateTotalCost();
-  orders.push(createOrder());
-  saveToLocalStorage();
+  createOrder();
 });
 
 // Калькуляция на счетчиках +
 firstPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(firstCounterNode);
-  orders.push(createOrder());
-  saveToLocalStorage();
 });
 secondPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(secondCounterNode);
-  orders.push(createOrder());
-  saveToLocalStorage();
 });
 thirdPlusButtonNode.addEventListener("click", () => {
   counterPlusOne(thirdCounterNode);
-  orders.push(createOrder());
-  saveToLocalStorage();
 });
 
 // Калькуляция на счетчиках -
 firstMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(firstCounterNode);
-  orders.push(createOrder());
-  saveToLocalStorage();
 });
 secondMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(secondCounterNode);
-  orders.push(createOrder());
-  saveToLocalStorage();
 });
 thirdMinusButtonNode.addEventListener("click", () => {
   counterMinusOne(thirdCounterNode);
-  orders.push(createOrder());
-  saveToLocalStorage();
-});
-
-// Клик по целому элементу экстра
-extras.forEach((extra) => {
-  extra.addEventListener("click", (event) => {
-    const checkbox = event.currentTarget.querySelector(".extra__checkbox");
-    checkbox.checked = !checkbox.checked;
-    calculateTotalCost();
-    orders.push(createOrder());
-    saveToLocalStorage();
-  });
 });
 
 // Клик по целому элементу опции
@@ -317,7 +294,15 @@ optionsItemsNodes.forEach((optionItem) => {
   optionItem.addEventListener("click", (event) => {
     const checkbox = event.currentTarget.querySelector(".option__checkbox");
     checkbox.checked = !checkbox.checked;
-    orders.push(createOrder());
-    saveToLocalStorage();
+    createOrder();
+  });
+});
+
+// Клик по целому элементу экстра
+extras.forEach((extra) => {
+  extra.addEventListener("click", (event) => {
+    const checkbox = event.currentTarget.querySelector(".extra__checkbox");
+    checkbox.checked = !checkbox.checked;
+    createOrder();
   });
 });
