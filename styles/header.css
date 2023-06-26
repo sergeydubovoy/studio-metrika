@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-content: center;
+  /* align-content: center; */
 }
 .nav__list {
   display: flex;

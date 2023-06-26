@@ -1,6 +1,11 @@
-/* .burger-btn {
+.burger-btn {
   display: none;
-} */
+}
+@media (max-width: 1199px) {
+  .burger-btn {
+    display: flex;
+  }
+}
 .burger {
   position: fixed;
   display: flex;
